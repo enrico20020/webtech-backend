@@ -5,23 +5,15 @@ FROM gradle:jdk21-jammy AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN chmod +x gradlew
-# Behält die stabilste Build-Kette bei
-RUN ./gradlew clean classes bootJar --no-daemon
+RUN ./gradlew clean build --no-daemon
 
 # -------------------------------------------------------------------------
-# STAGE 2: RUN - Bypasst den Spring Boot Loader (Fix für ClassNotFoundException)
+# STAGE 2: RUN - Wechsel zum stabilsten Basis-Image (Alpine)
 # -------------------------------------------------------------------------
-FROM eclipse-temurin:21-jre-jammy
-# Installiert das Entpack-Programm, das wir brauchen
-RUN apt-get update && apt-get install -y unzip && rm -rf /var/lib/apt/lists/*
+FROM eclipse-temurin:21-jre-alpine
 
 # Kopiere die JAR
 COPY --from=build /home/gradle/src/build/libs/webtech-0.0.1-SNAPSHOT.jar app.jar
 
-# Entpacke die ausführbare JAR-Datei in den Ordner 'app'
-RUN unzip app.jar -d app
-WORKDIR /app
-
-# NEUER, FINALER ENTRYPOINT: Startet die Anwendung direkt über den Classpath.
-# Wir sagen der JVM explizit, wo sie die Klassen und die Abhängigkeiten suchen soll.
-CMD sh -c "java -cp BOOT-INF/classes:BOOT-INF/lib/* htwwebtech.webtech.WebtechApplication"
+# Startbefehl: Standard-Spring-Boot-Start (funktioniert auf Alpine)
+ENTRYPOINT ["java","-jar","/app.jar"]
