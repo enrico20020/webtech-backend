@@ -16,4 +16,4 @@ FROM eclipse-temurin:21-jre-alpine
 COPY --from=build /home/gradle/src/build/libs/webtech-0.0.1-SNAPSHOT.jar app.jar
 
 # Startbefehl: Standard-Spring-Boot-Start (funktioniert auf Alpine)
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENTRYPOINT ["java", "-cp", "/app.jar", "org.springframework.boot.loader.JarLauncher"]
