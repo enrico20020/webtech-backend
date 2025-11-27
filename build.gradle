@@ -38,6 +38,7 @@ dependencies {
 // Pfad
 bootJar {
 	mainClass = 'htwwebtech.webtech.WebtechApplication'
+	enabled = true
 }
 
 tasks.named('test') {
