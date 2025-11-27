@@ -13,7 +13,7 @@ public class CorsConfig implements WebMvcConfigurer {
         // definiert das wo
         registry.addMapping("/**")
                 // Verknüpfung Frontend
-                .allowedOrigins("https://*.onrender.com")
+                .allowedOrigins("https://webtech-frontend-6w6z.onrender.com")
         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }
 }
