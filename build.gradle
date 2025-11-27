@@ -36,6 +36,10 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
+bootJar {
+	mainClass = 'htwwebtech.webtech.WebtechApplication'
+	enabled = true
+}
 
 tasks.named('test') {
 	useJUnitPlatform()
