@@ -24,4 +24,4 @@ WORKDIR /app
 
 # NEUER, FINALER ENTRYPOINT: Startet die Anwendung direkt über den Classpath.
 # Wir sagen der JVM explizit, wo sie die Klassen und die Abhängigkeiten suchen soll.
-ENTRYPOINT ["java", "-cp", "BOOT-INF/classes:BOOT-INF/lib/*", "htwwebtech.webtech.WebtechApplication"]
+CMD sh -c "java -cp BOOT-INF/classes:BOOT-INF/lib/* htwwebtech.webtech.WebtechApplication"
