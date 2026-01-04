@@ -23,6 +23,7 @@ Diese Applikation ist ein Shop-Backend-Manager. Sie ermöglicht das Verwalten vo
 3. Starte den Development-Server: `npm run dev`
 
 ## Deployment URL
+generell: https://dashboard.render.com/project/prj-d4k60q8gjchc739v7d90/environment/evm-d4k60q8gjchc739v7d9g
 Backend App: https://webtech-backend-6ot9.onrender.com
 https://webtech-backend-6ot9.onrender.com/api/products
 srv-d4kaf7u3jp1c738ncrfg
