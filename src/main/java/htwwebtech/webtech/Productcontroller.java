@@ -62,7 +62,16 @@ public class Productcontroller {
             return ResponseEntity.notFound().build();
         }
     }
+    @GetMapping("/search")
+    public List<Product> searchProducts(@RequestParam String name) {
+        // Hier rufen wir das Repository/Service auf
+        return productService.findByName(name);
+    }
 
+    @GetMapping("/filter")
+    public List<Product> filterProducts(@RequestParam Double maxPrice) {
+        return productService.findByMaxPrice(maxPrice);
+    }
 
 
         }

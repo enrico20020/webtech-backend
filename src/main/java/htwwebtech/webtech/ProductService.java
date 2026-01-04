@@ -40,5 +40,13 @@ public class ProductService {
 
     }
 
+    public List<Product> findByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public List<Product> findByMaxPrice(double maxPrice) {
+        return productRepository.findByPriceLessThanEqual(maxPrice);
+    }
+
     }
 

@@ -24,6 +24,7 @@ Diese Applikation ist ein Shop-Backend-Manager. Sie ermöglicht das Verwalten vo
 
 ## Deployment URL
 Backend App: https://webtech-backend-6ot9.onrender.com
+https://webtech-backend-6ot9.onrender.com/api/products
 srv-d4kaf7u3jp1c738ncrfg
 Frontend App: https://webtech-frontend-6w6z.onrender.com
 srv-d4kbmd2li9vc73dlnt9g
@@ -32,7 +33,7 @@ srv-d4kbmd2li9vc73dlnt9g
 External Database URL: postgresql://webtech_db_neu_user:NGICUI5gX0e7jKgLkI4C76EBpjopF9E3@dpg-d5dcjmuuk2gs738tj82g-a.frankfurt-postgres.render.com/webtech_db_neu
 Internal Database URL: postgresql://webtech_db_neu_user:NGICUI5gX0e7jKgLkI4C76EBpjopF9E3@dpg-d5dcjmuuk2gs738tj82g-a/webtech_db_neu
 Username: webtech_db_neu_user
+Hostname: dpg-d5dcjmuuk2gs738tj82g-a
 Password: NGICUI5gX0e7jKgLkI4C76EBpjopF9E3
-hostname: dpg-d5dcjmuuk2gs738tj82g-a
 Database: webtech_db_neu
 Port: 5432
