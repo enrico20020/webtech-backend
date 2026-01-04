@@ -1,5 +1,6 @@
 package htwwebtech.webtech;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,11 +8,10 @@ import java.util.List;
 import java.util.Optional;
 
 
-//speichern, Produkte suchen, löschen etc
 @RequestMapping("/api/products")
 @RestController
-// erlaubt Website mit Backend zu kommunizieren
-@CrossOrigin
+//empfängt Sachen vom Frontend und schickt Antworten
+ @CrossOrigin
 public class Productcontroller {
 
     private final ProductService productService;
@@ -41,7 +41,7 @@ public class Productcontroller {
     }
 
     @PostMapping
-    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
         Product savedProduct = productService.save(product);
         return ResponseEntity.status(201).body(savedProduct);
     }
@@ -52,5 +52,18 @@ public class Productcontroller {
         productService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @Valid @RequestBody Product productDetails) {
+        try {
+            Product updatedProduct = productService.update(id, productDetails);
+            return ResponseEntity.ok(updatedProduct);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
         }
 

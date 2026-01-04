@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-// Logik + Speichern in Datenbank
+// Geschäftslogik + Speichern in Datenbank
 @Service
 public class ProductService {
 
@@ -29,10 +29,16 @@ public class ProductService {
     public void deleteById(Long id) {
         productRepository.deleteById(id);}
 
+    public Product update(Long id, Product productDetails) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Produkt nicht gefunden mit ID: " + id));
 
+        product.setName(productDetails.getName());
+        product.setPrice(productDetails.getPrice());
 
+        return productRepository.save(product);
 
-
+    }
 
     }
 

@@ -1,18 +1,22 @@
 package htwwebtech.webtech;
 
-//Datenbank 1
-//Ich würde eine Product-Entity erstellen, die eine Tabelle products repräsentiert. z.B. Laptop mit ID, Preis etc.
-
+//Datenmodell
+// definiert wie ein Produkt in der Datenbank aussieht
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank (message = "Name darf nicht leer sein")
+    private String name;
 
     public Long getId() {
         return id;
@@ -22,7 +26,6 @@ public class Product {
         this.id = id;
     }
 
-    private String name;
 
     public String getName() {
         return name;
@@ -31,7 +34,7 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-
+    @Min(value= 0, message = "Preis muss positiv sein")
     private double price;
 
     public double getPrice() {
