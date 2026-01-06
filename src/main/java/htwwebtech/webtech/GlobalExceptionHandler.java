@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
     @ControllerAdvice
+    // Fehlerbehandlung
     public class GlobalExceptionHandler {
 
         // Fangt den Fehler ab, wenn ein Produkt nicht gefunden wird

@@ -9,10 +9,10 @@ import java.util.List;
 // Datenbankschnittstelle, direkte Funktionen
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-     // Use-Case 6: Suche nach Namen (Teilstring, Ignoriert Groß/Kleinschreibung)
+     // Use-Case 6: Suche nach Namen
         List<Product> findByNameContainingIgnoreCase(String name);
 
-        // Use-Case 7: Preis-Filter (Alles was günstiger ist als...)
+        // Use-Case 7: Preis-Filter
         List<Product> findByPriceLessThanEqual(double maxPrice);
     }
 

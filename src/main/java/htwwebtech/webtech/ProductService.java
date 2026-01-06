@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-// Geschäftslogik + Speichern in Datenbank
+// Geschäftslogik + Speichern in Datenbank (Gehirn)
 @Service
 public class ProductService {
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @RequestMapping("/api/products")
 @RestController
-//empfängt Sachen vom Frontend und schickt Antworten
+//empfängt Sachen vom Frontend und schickt Antworten an dieses
  @CrossOrigin
 public class Productcontroller {
 

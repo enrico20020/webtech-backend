@@ -1,7 +1,7 @@
 package htwwebtech.webtech;
 
 //Datenmodell
-// definiert wie ein Produkt in der Datenbank aussieht
+// Vorlage, definiert wie ein Produkt in der Datenbank aussieht
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
